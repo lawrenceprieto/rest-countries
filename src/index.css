@@ -1,11 +1,10 @@
 :root {
   --dark-mode-bg: hsl(207, 26%, 17%);
   --light-mode-bg: hsl(0, 0%, 98%);
-
   --dark-mode-text: hsl(0, 0%, 100%);
   --light-mode-text: hsl(200, 15%, 8%);
-
   --light-mode-input: hsl(0, 0%, 52%);
+  --dark-mode-elements: hsl(209, 23%, 22%);
 }
 
 .dark {
@@ -16,6 +15,10 @@
 .light {
   background-color: var(--light-mode-bg);
   color: var(--light-mode-text);
+}
+
+.elements-dark {
+  background-color: var(--dark-mode-elements);
 }
 
 * {

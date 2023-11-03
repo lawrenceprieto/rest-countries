@@ -1,16 +1,17 @@
 import { createContext, useState } from "react";
 
-export const ColorModeContext = createContext();
-export const  ColorModeProvider = (props) => {
+export const Context = createContext();
+export const  ContextProvider = (props) => {
 
     const [isDarkMode, setIsDarkMode] = useState(false);
+    
     return (
         <>
-            <ColorModeContext.Provider value={{
+            <Context.Provider value={{
                 isDarkMode, setIsDarkMode
             }}>
                 {props.children}
-            </ColorModeContext.Provider>
+            </Context.Provider>
         </>
     );
 }

@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import data from "../assets/data.json"
 import Cards from "../components/Cards";
-import { ColorModeContext } from "../context/ColorModeContext";
+import { Context } from "../context/Context";
 
 function HomePage() {
 
-    const { isDarkMode } = useContext(ColorModeContext);
+    const { isDarkMode } = useContext(Context);
     const countries = data;
-    console.log(countries);
+
     return (
         <>
             <div className={ isDarkMode ? "countries-container dark p-5" : "countries-container light p-5" }>

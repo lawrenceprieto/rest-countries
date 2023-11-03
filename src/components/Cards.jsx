@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { ColorModeContext } from "../context/ColorModeContext"
+import { Context } from "../context/Context"
 
 function Cards(props) {
 
-    const { isDarkMode } = useContext(ColorModeContext);
+    const { isDarkMode } = useContext(Context);
 
     return (
         <>

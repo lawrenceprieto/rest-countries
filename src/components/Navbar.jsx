@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { ColorModeContext } from "../context/ColorModeContext";
+import { Context } from "../context/Context";
 
 function Navbar() {
 
-    const { isDarkMode , setIsDarkMode } = useContext(ColorModeContext);
+    const { isDarkMode , setIsDarkMode } = useContext(Context);
 
     function handleDarkMode() {
         setIsDarkMode(false); 

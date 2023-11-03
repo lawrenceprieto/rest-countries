@@ -1,10 +1,11 @@
 :root {
   --dark-mode-bg: hsl(207, 26%, 17%);
-  --light-mode-bg: hsl(0, 0%, 98%);
+  --light-mode-bg: hsl(0, 0%, 95%);
   --dark-mode-text: hsl(0, 0%, 100%);
   --light-mode-text: hsl(200, 15%, 8%);
   --light-mode-input: hsl(0, 0%, 52%);
   --dark-mode-elements: hsl(209, 23%, 22%);
+  --light-mode-elements: hsl(0, 0%, 100%);
 }
 
 .dark {
@@ -19,6 +20,12 @@
 
 .elements-dark {
   background-color: var(--dark-mode-elements);
+  color: var(--dark-mode-text);
+}
+
+.elements-light {
+  background-color: var(--light-mode-elements);
+  color: var(--light-mode-text);
 }
 
 * {
@@ -39,6 +46,37 @@ body {
   padding: 0 20px;
 }
 
-.navbar button {
+.navbar button, .card {
   border: none;
+}
+
+.countries-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+
+/* mobile view */
+@media (max-width: 640px) {
+  .countries-container {
+    flex-direction: column;
+  }
+}
+
+/* tablet view */
+@media (min-width: 641px) and (max-width: 1007px) {
+  .countries-container .card {
+    flex: 1 0 calc(25% - 50px);
+  }
+}
+
+/* desktop view */
+@media (min-width: 1008px) {
+  .countries-container .card {
+    flex: 1 0 calc(25% - 50px);
+  }
 }

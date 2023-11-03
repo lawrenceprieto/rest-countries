@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import data from "../assets/data.json"
 import Cards from "../components/Cards";
 import { Context } from "../context/Context";
@@ -6,7 +6,15 @@ import { Context } from "../context/Context";
 function HomePage() {
 
     const { isDarkMode } = useContext(Context);
-    const countries = data;
+    const [ items , setItems ] = useState(data);
+    const menuItems = [...new Set(data.map((regions) => regions.region))];
+
+    function handleMenuItem(menuItem) {
+        const newItem = data.filter((regions) => {
+            return regions.region === menuItem; 
+        });
+        setItems(newItem);
+    }
 
     return (
         <>
@@ -17,17 +25,19 @@ function HomePage() {
                         <input className={ isDarkMode ? "elements-dark" : "elements-light" } type="text"  placeholder="Search for a country..." aria-describedby="button-addon1" />
                     </div>
                     <div className="dropdown">
-                        <button className={ isDarkMode ? "dropdown-toggle elements-dark" : "dropdown-toggle elements-light" } type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter by Region</button>
+                        <button className={ isDarkMode ? "dropdown-toggle elements-dark" : "dropdown-toggle elements-light" } type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter by Region <span className="px-3"></span></button>
                         <ul className={ isDarkMode ? "dropdown-menu elements-dark" : "dropdown-menu elements-light" }>
-                            <li><a className={ isDarkMode ? "dropdown-item elements-dark" : "dropdown-item elements-light" } href="#">Action</a></li>
-                            <li><a className={ isDarkMode ? "dropdown-item elements-dark" : "dropdown-item elements-light" } href="#">Another action</a></li>
-                            <li><a className={ isDarkMode ? "dropdown-item elements-dark" : "dropdown-item elements-light" } href="#">Something else here</a></li>
+                            {
+                                menuItems.map((menuItem, index) => (
+                                    <li key={index}><a className={ isDarkMode ? "dropdown-item elements-dark" : "dropdown-item elements-light" } onClick={() => handleMenuItem(menuItem)}>{menuItem}</a></li>
+                                ))
+                            }
                         </ul>
                     </div>
                 </div>    
                 <div className="countries-container">
                     {
-                        countries.map((country, index) => (
+                        items.map((country, index) => (
                             <Cards key={index} 
                                 image={country.flag} 
                                 name={country.name}

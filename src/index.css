@@ -114,4 +114,16 @@ input {
   .countries-container .card {
     flex: 1 0 calc(25% - 50px);
   }
+  .countries-container {
+    padding: 0 50px;
+  }
+  .input-dropdown {
+    padding: 30px 50px;
+  }
+  .input-dropdown {
+    flex-direction: row;
+  }
+  .input-field input {
+    width: 50%;
+  }
 }

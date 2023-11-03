@@ -72,7 +72,26 @@ input {
 .input-dropdown {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   gap: 30px;
+  padding: 20px;
+}
+
+.input-field {
+  width: 100%;
+  display: flex;
+}
+
+.input-field button {
+  padding: 15px 20px;
+}
+
+.input-field input {
+  width: 100%;
+}
+
+.dropdown button {
+  padding: 15px 20px;
 }
 
 

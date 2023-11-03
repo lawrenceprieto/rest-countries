@@ -12,7 +12,7 @@ function HomePage() {
         <>
             <div className={ isDarkMode ? "dark" : "light" }> 
                 <div className="input-dropdown">
-                    <div className="input-group">
+                    <div className="input-field">
                         <button className={ isDarkMode ? "elements-dark" : "elements-light" } type="button" id="button-addon1"><i className="fa-solid fa-magnifying-glass"></i></button>
                         <input className={ isDarkMode ? "elements-dark" : "elements-light" } type="text"  placeholder="Search for a country..." aria-describedby="button-addon1" />
                     </div>

@@ -19,6 +19,7 @@ function HomePage() {
 
     const navigate = useNavigate();
     function handleCountry(country) {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         setCountryDetails(country);
         navigate("detail-page");
     }

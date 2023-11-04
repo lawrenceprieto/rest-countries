@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import data from "../assets/data.json"
 import Cards from "../components/Cards";
 import { Context } from "../context/Context";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
 
-    const { isDarkMode } = useContext(Context);
+    const { isDarkMode, setCountryDetails } = useContext(Context);
     const [ items , setItems ] = useState(data);
     const menuItems = [...new Set(data.map((regions) => regions.region))];
 
@@ -14,6 +15,12 @@ function HomePage() {
             return regions.region === menuItem; 
         });
         setItems(newItem);
+    }
+
+    const navigate = useNavigate();
+    function handleCountry(country) {
+        setCountryDetails(country);
+        navigate("detail-page");
     }
 
     return (
@@ -44,6 +51,7 @@ function HomePage() {
                                 population={country.population}
                                 region={country.region}
                                 capital={country.capital}
+                                onClick={() => handleCountry(country)}
                             />
                         ))
                     }

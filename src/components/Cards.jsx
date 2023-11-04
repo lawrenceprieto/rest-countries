@@ -7,7 +7,7 @@ function Cards(props) {
 
     return (
         <>
-            <div className={ isDarkMode ? "dark card" : "light card" } style={{width: "18rem", minWidth: "15rem", fontSize: "16px"}}>
+            <div className={ isDarkMode ? "dark card" : "light card" } style={{width: "18rem", minWidth: "15rem", fontSize: "16px"}} onClick={props.onClick}>
                 <img src={props.image} className="card-img-top" alt={props.name} style={{height: "150px", minHeight: "150px", objectFit: "cover"}} />
                 <div className={ isDarkMode ? "elements-dark card-body pt-4 pb-5 px-4" : "elements-light card-body pt-4 pb-5 px-4" } >
                     <div className="card-title" style={{fontWeight: "800", minHeight: "50px", fontSize: "17px"}}>{props.name}</div>

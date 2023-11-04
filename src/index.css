@@ -121,9 +121,6 @@ input {
   object-fit: cover;
 }
 
-.details-content {
-}
-
 .details-about {
   display: flex;
   flex-direction: column;
@@ -140,7 +137,10 @@ input {
 /* mobile view */
 @media (max-width: 640px) {
   .countries-container {
-    flex-direction: column;
+    padding: 0 20px;
+  }
+  .countries-container .card {
+    flex: 1 0 calc(25% - 10px);
   }
 }
 
@@ -148,6 +148,9 @@ input {
 @media (min-width: 641px) and (max-width: 1007px) {
   .countries-container .card {
     flex: 1 0 calc(25% - 50px);
+  }
+  .countries-container {
+    padding: 0 50px;
   }
 }
 

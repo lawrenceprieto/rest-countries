@@ -47,7 +47,7 @@ function DetailPage() {
                         <div className="details-about">
                             <div>
                                 <div className="mb-2" style={{fontWeight: "600"}}>Native Name: <span style={{fontWeight: "300", wordWrap: "wrap"}}>{countryDetails.nativeName}</span></div>
-                                <div className="mb-2" style={{fontWeight: "600"}}>Population: <span style={{fontWeight: "300"}}>{countryDetails.population}</span></div>
+                                <div className="mb-2" style={{fontWeight: "600"}}>Population: <span style={{fontWeight: "300"}}>{new Intl.NumberFormat().format(countryDetails.population)}</span></div>
                                 <div className="mb-2" style={{fontWeight: "600"}}>Region: <span style={{fontWeight: "300"}}>{countryDetails.region}</span></div>
                                 <div className="mb-2" style={{fontWeight: "600"}}>Sub Region: <span style={{fontWeight: "300"}}>{countryDetails.subregion}</span></div>
                                 <div className="mb-2" style={{fontWeight: "600"}}>Capital: <span style={{fontWeight: "300"}}>{countryDetails.capital}</span></div>

@@ -10,7 +10,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="detail-page" element={<DetailPage />} />
+          <Route path="/country/:countryName" element={<DetailPage />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -7,7 +7,7 @@ import Dropdown from "../components/Dropdown";
 
 function HomePage() {
 
-    const { isDarkMode, data } = useContext(Context);
+    const { isDarkMode, filteredData } = useContext(Context);
     const navigate = useNavigate();
 
     function handleCountry(country) {
@@ -29,7 +29,7 @@ function HomePage() {
                 </div>    
                 <div className="countries-container">
                     {
-                        data.map((country, index) => (
+                        filteredData.map((country, index) => (
                             <Cards key={index} 
                                 image={country.flags.png} 
                                 name={country.name.common}

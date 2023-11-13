@@ -3,6 +3,7 @@ import { Context } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import Cards from "../components/Cards";
 import axios from "axios";
+import InputField from "../components/InputField";
 
 function HomePage() {
 
@@ -33,10 +34,7 @@ function HomePage() {
         <>
             <div className={ isDarkMode ? "dark" : "light" } style={{minHeight: "100vh"}}>
                 <div className="input-dropdown">
-                    <div className="input-field">
-                        <button className={ isDarkMode ? "elements-dark" : "elements-light" } type="button" id="button-addon1"><i className="fa-solid fa-magnifying-glass"></i></button>
-                        <input className={ isDarkMode ? "elements-dark" : "elements-light" } type="text"  placeholder="Search for a country..." aria-describedby="button-addon1" />
-                    </div>
+                    <InputField />
                     <div className="dropdown">
                         <button className={ isDarkMode ? "dropdown-toggle elements-dark" : "dropdown-toggle elements-light" } type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter by Region <span className="px-3"></span></button>
                         <ul className={ isDarkMode ? "dropdown-menu elements-dark" : "dropdown-menu elements-light" }>

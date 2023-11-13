@@ -25,16 +25,17 @@ function DetailPage() {
 
                     setLoading(true);
                 } else {
-
+                    
                     // convert the currency to object
                     const currencyArray = countryData.currencies ? Object.values(countryData.currencies) : null;
-                    const currencyValue = currencyArray[0]?.name ? currencyArray[0].name : "None";
+                    const currencyValue = currencyArray ? currencyArray[0].name : "None";
 
                     // conver the native name to object
-                    const nativeNameArray = countryData.name.nativeName ? Object.values(countryData.name.nativeName) : null;
-                    const nativeNameValue = nativeNameArray[0]?.common ? nativeNameArray[0].common : "None";
+                    const nativeNameArray = countryData.name ? Object.values(countryData.name.nativeName) : null;
+                    const nativeNameValue = nativeNameArray ? nativeNameArray[0].common : "None";
 
-                    // convert the language to object
+
+                    // // convert the language to object
                     const languageArray = countryData.languages ? Object.values(countryData.languages) : null;
                     const languageValue = languageArray ? languageArray.map(language => language) : "None";
 
@@ -52,13 +53,16 @@ function DetailPage() {
                         borders: countryData?.borders
                     });
 
-                    // get all the borders using codes 
-                    const bordersName = countryData.borders.map(borderCode => {
-                        const border = data.find(b => b.cca3 === borderCode);
-                        return border;
-                    });
+                    // get all the borders using codes
+                    if (countryData.borders) {
+                        const bordersName = countryData.borders.map(borderCode => {
+                            const border = data.find(b => b.cca3 === borderCode);
+                            return border;
+                        });
 
-                    setBorders(bordersName);                    
+                        setBorders(bordersName);                    
+                    }
+
                     setLoading(false);
                 }
             } catch (error) {

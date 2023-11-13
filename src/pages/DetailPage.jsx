@@ -34,7 +34,6 @@ function DetailPage() {
                     const nativeNameArray = countryData.name ? Object.values(countryData.name.nativeName) : null;
                     const nativeNameValue = nativeNameArray ? nativeNameArray[0].common : "None";
 
-
                     // convert the language to object
                     const languageArray = countryData.languages ? Object.values(countryData.languages) : null;
                     const languageValue = languageArray ? languageArray.map(language => language) : "None";

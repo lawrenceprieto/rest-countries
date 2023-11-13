@@ -35,22 +35,37 @@ function DetailPage() {
                     const nativeNameValue = nativeNameArray ? nativeNameArray[0].common : "None";
 
 
-                    // // convert the language to object
+                    // convert the language to object
                     const languageArray = countryData.languages ? Object.values(countryData.languages) : null;
                     const languageValue = languageArray ? languageArray.map(language => language) : "None";
+                    
+                    // check if capital have value 
+                    const capitalValue = countryData.capital ? countryData.capital : "None";
+
+                    // check if subregion have value
+                    const subregionValue = countryData.subregion ? countryData.subregion : "None";
+
+                    // check if borders have value
+                    const bordersValue = countryData.borders ? countryData.borders : "None";
+
+                    // check of tld have value
+                    const tldValue = countryData.tld ? countryData.tld : "None";
+
+                    // check if region have value
+                    const regionValue = countryData.region ? countryData.region : "None";
 
                     setCountry({
                         flag: countryData.flags?.png,
                         name: countryData.name.common,
                         nativeName: nativeNameValue,
                         population: countryData.population,
-                        region: countryData.region,
-                        subregion: countryData?.subregion,
-                        capital: countryData?.capital,
-                        tld: countryData?.tld,
+                        region: regionValue,
+                        subregion: subregionValue,
+                        capital: capitalValue,
+                        tld: tldValue,
                         currency: currencyValue,
                         language: languageValue,
-                        borders: countryData?.borders
+                        borders: bordersValue,
                     });
 
                     // get all the borders using codes
@@ -87,6 +102,7 @@ function DetailPage() {
         fetchCountryDataByName(border.name.common);
     }
     
+    console.log(country);
     return (
         <>
             <div className={ isDarkMode ? "details-page dark" : "details-page light" } style={{minHeight: "100vh"}}>
@@ -110,7 +126,7 @@ function DetailPage() {
                             </div>
                         </div>
                         <div className="mt-4 mb-5 border-countries">
-                            <div className="mb-2" style={{fontWeight: "600"}}>Border Countries: </div>
+                            <div className="mb-2" style={{fontWeight: "600"}}>Border Countries: <span style={{fontWeight: "300"}}>{country.borders === "None" ? "None" : null}</span></div>
                             <div className="bc-details">
                                 {
                                     borders.map((border, index) => (

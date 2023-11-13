@@ -11,6 +11,7 @@ export const  ContextProvider = (props) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [countryInfo, setCountryInfo] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [filteredData, setFilteredData] = useState([]);
 
     // get all the countrt data from the api
     useEffect(() => {
@@ -37,6 +38,7 @@ export const  ContextProvider = (props) => {
                 regions, setRegions, 
                 isDarkMode, setIsDarkMode,
                 countryInfo, setCountryInfo,
+                filteredData, setFilteredData
             }}>
                 {props.children}
             </Context.Provider>

@@ -101,7 +101,6 @@ function DetailPage() {
         fetchCountryDataByName(border.name.common);
     }
     
-    console.log(country);
     return (
         <>
             <div className={ isDarkMode ? "details-page dark" : "details-page light" } style={{minHeight: "100vh"}}>

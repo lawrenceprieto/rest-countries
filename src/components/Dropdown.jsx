@@ -4,13 +4,13 @@ import { Context } from "../context/Context"
 
 function Dropdown() {
 
-    const { isDarkMode, regions, setData } = useContext(Context);
+    const { isDarkMode, regions, setFilteredData } = useContext(Context);
 
     function handleSelectedRegion(selectedRegion) {
         const region = `https://restcountries.com/v3.1/region/${selectedRegion}`;
         axios.get(region)
         .then(response => {            
-            setData(response.data);
+            setFilteredData(response.data);
         }, error => { 
             console.log(error); 
         });

@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/rest-countries" element={<HomePage />} />
           <Route path="/country/:countryName" element={<DetailPage />} />
         </Routes>
       </BrowserRouter>

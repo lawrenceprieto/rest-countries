@@ -13,7 +13,7 @@ function DetailPage() {
 
     
     function handleBackButton() {
-        navigate("/");
+        navigate("/rest-countries");
     }
 
     // useEffect(() => {

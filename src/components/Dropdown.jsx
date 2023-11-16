@@ -4,7 +4,7 @@ import { Context } from "../context/Context"
 
 function Dropdown() {
 
-    const { isDarkMode, regions, setFilteredData } = useContext(Context);
+    const { isDarkMode, regions, setFilteredData, data } = useContext(Context);
 
     function handleSelectedRegion(selectedRegion) {
         const region = `https://restcountries.com/v3.1/region/${selectedRegion}`;
@@ -16,11 +16,21 @@ function Dropdown() {
         });
     }
 
+    function handleAllRegion() {
+        setFilteredData(data);
+    }
+
     return(
         <>
             <div className="dropdown">
                 <button className={ isDarkMode ? "dropdown-toggle elements-dark" : "dropdown-toggle elements-light" } type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter by Region <span className="px-3"></span></button>
                 <ul className={ isDarkMode ? "dropdown-menu elements-dark" : "dropdown-menu elements-light" }>
+                    <li style={{cursor: "pointer"}}>
+                        <a className={ isDarkMode ? "dropdown-item elements-dark" : "dropdown-item elements-light" } 
+                            onClick={handleAllRegion}>
+                            All Region
+                        </a>
+                    </li>
                     {
                         regions.map((selectedRegion, index) => (
                             <li key={index} style={{cursor: "pointer"}}>

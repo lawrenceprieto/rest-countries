@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Cards from "../components/Cards";
 import InputField from "../components/InputField";
 import Dropdown from "../components/Dropdown";
+import NoResult from "../components/NoResult";
 
 function HomePage() {
 
-    const { isDarkMode, filteredData } = useContext(Context);
+    const { isDarkMode, filteredData, noResult } = useContext(Context);
     const navigate = useNavigate();
 
     function handleCountry(country) {
@@ -29,6 +30,7 @@ function HomePage() {
                 </div>    
                 <div className="countries-container">
                     {
+                        noResult ? <NoResult /> :
                         filteredData.map((country, index) => (
                             <Cards key={index} 
                                 image={country.flags.png} 

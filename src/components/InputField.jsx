@@ -3,21 +3,25 @@ import { Context } from "../context/Context"
 
 function InputField() {
 
-    const { isDarkMode, data, setFilteredData } = useContext(Context);
+    const { isDarkMode, data, setFilteredData, setNoResult } = useContext(Context);
     const [search, setSearch] = useState('');
-    
+
     function handleOnChange(e) {
         const searchTerm = e.target.value;
         setSearch(searchTerm);
 
         if (searchTerm === '') {
             setFilteredData(data);
+            setNoResult(false);
         }
     }
 
     const filtered = () => {
         const filtered = data.filter(country => country.name.common.toLowerCase().includes(search.toLowerCase()));
         setFilteredData(filtered);
+        if (filtered.length === 0) {
+            setNoResult(true)
+        }
     }
 
     useEffect(() => {

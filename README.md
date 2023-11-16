@@ -36,4 +36,3 @@ Users should be able to:
 - [Bootsrap](https://getbootstrap.com/)
 - [React Bootsrap](https://react-bootstrap.github.io/)
 - [Rest Countries](https://restcountries.com/)
-

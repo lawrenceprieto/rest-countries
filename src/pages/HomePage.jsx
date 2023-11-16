@@ -8,7 +8,7 @@ import NoResult from "../components/NoResult";
 
 function HomePage() {
 
-    const { isDarkMode, filteredData, noResult } = useContext(Context);
+    const { isDarkMode, filteredData } = useContext(Context);
     const navigate = useNavigate();
 
     function handleCountry(country) {
@@ -30,7 +30,7 @@ function HomePage() {
                 </div>    
                 <div className="countries-container">
                     {
-                        noResult ? <NoResult /> :
+                        filteredData.length === 0 ? <NoResult /> :
                         filteredData.map((country, index) => (
                             <Cards key={index} 
                                 image={country.flags.png} 
